@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>お問い合わせ | first_repository</title>
+  <!-- 既存TOPページと同じCSS群を読み込み（最低限に絞った版） -->
+  <link rel="stylesheet" href="stylesheet_20.css" />
+  <link rel="stylesheet" href="stylesheet_19.css" />
+  <link rel="stylesheet" href="stylesheet_18.css" />
+  <link rel="stylesheet" href="stylesheet_17.css" />
+  <link rel="stylesheet" href="stylesheet_16.css" />
+  <link rel="stylesheet" href="stylesheet_15.css" />
+  <link rel="stylesheet" href="stylesheet_14.css" />
+  <link rel="stylesheet" href="stylesheet_13.css" />
+  <link rel="stylesheet" href="stylesheet_12.css" />
+  <link rel="stylesheet" href="stylesheet_11.css" />
+  <link rel="stylesheet" href="stylesheet_10.css" />
+  <link rel="stylesheet" href="stylesheet_9.css" />
+  <link rel="stylesheet" href="stylesheet_8.css" />
+  <link rel="stylesheet" href="stylesheet_7.css" />
+  <link rel="stylesheet" href="stylesheet_6.css" />
+  <link rel="stylesheet" href="stylesheet_5.css" />
+  <link rel="stylesheet" href="stylesheet_4.css" />
+  <link rel="stylesheet" href="stylesheet_3.css" />
+  <link rel="stylesheet" href="stylesheet_2.css" />
+  <style>
+    .contact-wrapper {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 24px 20px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+    }
+    .contact-title {
+      margin: 0 0 16px;
+      font-size: 24px;
+      font-weight: 700;
+    }
+    .contact-description {
+      margin: 0 0 24px;
+      color: #4b5563;
+      line-height: 1.7;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .contact-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .contact-label {
+      font-size: 14px;
+      color: #374151;
+    }
+    .contact-input,
+    .contact-textarea {
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      padding: 8px 10px;
+      font-size: 14px;
+    }
+    .contact-textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .contact-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #26c4fc, #115489);
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .btn-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      font-size: 14px;
+      color: #115489;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .contact-message {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #059669;
+      display: none;
+    }
+    .contact-message.is-visible {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="contact-wrapper">
+    <h1 class="contact-title">お問い合わせ</h1>
+    <p class="contact-description">
+      こちらはフロントエンドのみで動作する「お問い合わせ」画面のモックです。<br />
+      入力内容は画面内で確認されるだけで、サーバーへの送信処理は行われません。
+    </p>
+
+    <form class="contact-form" onsubmit="onSubmit(event)">
+      <div class="contact-field">
+        <label for="name" class="contact-label">お名前</label>
+        <input id="name" name="name" type="text" class="contact-input" placeholder="山田 太郎" required />
+      </div>
+      <div class="contact-field">
+        <label for="email" class="contact-label">メールアドレス</label>
+        <input id="email" name="email" type="email" class="contact-input" placeholder="example@example.com" required />
+      </div>
+      <div class="contact-field">
+        <label for="type" class="contact-label">お問い合わせ種別</label>
+        <select id="type" name="type" class="contact-input">
+          <option value="question">質問</option>
+          <option value="request">要望</option>
+          <option value="bug">不具合報告</option>
+        </select>
+      </div>
+      <div class="contact-field">
+        <label for="message" class="contact-label">お問い合わせ内容</label>
+        <textarea
+          id="message"
+          name="message"
+          class="contact-textarea"
+          placeholder="お問い合わせ内容をご記入ください。"
+          required
+        ></textarea>
+      </div>
+
+      <div class="contact-actions">
+        <button type="submit" class="btn-primary">送信（モック）</button>
+        <a href="index.html" class="btn-link">TOPページへ戻る</a>
+      </div>
+
+      <p id="info" class="contact-message" aria-live="polite"></p>
+    </form>
+  </div>
+
+  <script>
+    function onSubmit(event) {
+      event.preventDefault();
+      const info = document.getElementById('info');
+      info.textContent = 'これはモック画面のため、実際の送信処理は行われません。入力内容のみフロント側で受け取りました。';
+      info.classList.add('is-visible');
+    }
+  </script>
+</body>
+</html>
+
